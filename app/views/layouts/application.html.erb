@@ -15,6 +15,7 @@
         <% if current_user %>
           <li><%= current_user.email %></li>
           <li><%= link_to "Sign out", '/sign_out' %></li>
+          <li><%= link_to "New Product", new_product_path, remote: true %></li>
         <% else %>
           <li><%= link_to "Sign up", 'sign_up' %></li>
           <li><%= link_to "Sign in", '/sign_in' %></li>

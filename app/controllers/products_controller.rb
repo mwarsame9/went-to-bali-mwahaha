@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authorize, except: [:new, :create, :index, :show]
+  before_filter :authorize, except: [:new, :create, :index, :edit, :update, :destroy, :show]
 
   def index
     @products = Product.all
