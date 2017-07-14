@@ -1,13 +1,16 @@
 <%= link_to "New Product", new_product_path, id:"product_form", remote: true %>
 <hr>
+<div  id="product_detail">
+
+</div>
 
 <div class="row">
   <div class="section">
   <% @products.each do |product| %>
     <div class="col s4">
-      <h4><%= link_to product.name, product_path(product) %></h4>
-      <p><%= product.description %></p>
-      <p><%= number_to_currency product.price %></p>
+      <h4><%= link_to product.name, product_path(product), remote: true %></h4>
+      <!-- <p><%= product.description %></p>
+      <p><%= number_to_currency product.price %></p> -->
       <%= form_for @order_item, remote: true do |f| %>
         <%= f.hidden_field :product_id, value: product.id %>
         <%= f.number_field :quantity, placeholder: "Oops, breaks if you don't add input!" %>
