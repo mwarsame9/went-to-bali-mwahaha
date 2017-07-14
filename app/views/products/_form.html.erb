@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @product %>
+
+<%= form_for @product, remote: true do |f| %>
+  Name: <%= f.text_field :name %>
+  Description: <%= f.text_field :description %>
+  Price: <%= f.number_field :price %>
+<%= f.submit "Submit" %>
+
+<% end %>
