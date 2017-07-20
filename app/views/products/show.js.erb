@@ -1,1 +1,4 @@
-$("#product_detail").html("<%= j render(partial: 'show') %>");
+$("#product_show").html("<%= j render(partial: 'show') %>");
+$("#product_hide").click(function() {
+  $("#product_show").empty()
+});

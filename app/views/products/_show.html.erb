@@ -1,9 +1,8 @@
-<div>
+<div id="product_hide">
   <h4><%= @product.name %></h4>
   <p><%= @product.description %></p>
   <p><%= number_to_currency @product.price %></p>
   <%= image_tag "product.jpg" %>
-  <p><%= link_to "Collapse" %></p>
   <% if current_user %>
   <p><%= link_to "Edit", edit_product_path(@product) %> |
   <%= link_to "Delete", product_path(@product),
