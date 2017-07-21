@@ -3,13 +3,16 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @item = @order.order_items.new(item_params)
-    @order.save
-      session[:order_id] = @order.id
-      flash[:notice] = "Product successfully added to cart!"
-        respond_to do |format|
-          format.html 
-          format.js { redirect_to products_path }
-        end
+    if @order.save
+      respond_to do |format|
+        session[:order_id] = @order.id
+        # flash[:notice] = "Product successfully added to cart!"
+        format.html
+        format.js
+      end
+    else
+     redirect_to products_path
+    end
   end
 
   def update
